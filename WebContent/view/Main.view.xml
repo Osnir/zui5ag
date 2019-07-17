@@ -1,0 +1,100 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:l="sap.ui.layout"
+	controllerName="ZUI5AG.controller.Main" 
+	displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="Agenda de Contatos">
+				<content>
+					<Panel expandable="false">					
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="CPF" labelFor="txtCpf"/>
+								<MaskInput id="txtCpf" mask="999.999.999-99" width="150px"/>
+								<!-- <Input id="txtCpf" /> -->
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+						
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="Nome" labelFor="txtNome"/>	
+								<Input id="txtNome" />
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+		
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="E-mail" labelFor="txtEmail"/>	
+								<Input id="txtEmail" />
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+		
+						<l:HorizontalLayout class="sapUiContentPadding">	
+							<l:VerticalLayout>
+								<Label text=""/>									
+								<Button type="Accept" text="Salvar" press="onSave" icon="sap-icon://save"/>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+					</Panel>
+					
+					<Panel expandable="false">
+						<Table id="tbAgenda" 
+							   inset="false"
+							   alternateRowColors="true"
+							   items="{ path: '/ListaContatos' }"
+							   growing="true" growingThreshold="10"
+							   noDataText="Sem dados">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title id="tlTitleBar" text="" level="H4" />
+									<ToolbarSpacer />
+									<SearchField id="searchField" search="onSearch" placeholder="Pesquisar..." value="{/globalFilter}" width="350px" />
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="CPF"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
+									<Text text="Nome"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
+									<Text text="E-mail"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true" width="30px">
+									<Text text=""/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true" width="30px">
+									<Text text=""/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true" width="30px">
+									<Text text=""/>
+								</Column>								
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<!-- 
+										<Text text="{Cpf}"/>
+										<Text text="{path:'Cpf', formatter: '.formatCpf2'}"/>										  
+										--> 
+										<Text text="{path:'Cpf', formatter: '.formatter.formatCpf'}"/>
+																			
+										<Text text="{Nome}"/>										 
+										<Text text="{Email}"/>										
+										<Button icon="sap-icon://edit" tooltip="Altera o registro" press="onEdit" />
+										<Button icon="sap-icon://display" tooltip="Exibe detalhes" press="showDetail" />
+										<Button icon="sap-icon://delete" tooltip="Exclui o registro" press="onDelete" />
+									</cells>
+								</ColumnListItem>
+							</items>						
+						</Table>							
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

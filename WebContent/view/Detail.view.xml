@@ -1,0 +1,45 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:l="sap.ui.layout"
+	controllerName="ZUI5AG.controller.Detail" 
+	displayBlock="true">
+	<App id="idAppControl2">
+		<pages>
+			<Page title="Agenda de Contatos - Detalhe">
+				<content>
+					<Panel expandable="false">					
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="CPF" labelFor="txtCpf"/>
+								<MaskInput id="txtCpf" mask="999.999.999-99" width="150px" editable="false"/>								
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+						
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="Nome" labelFor="txtNome"/>	
+								<Input id="txtNome" editable="false"/>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+		
+						<l:HorizontalLayout class="sapUiContentPadding">					
+							<l:VerticalLayout>
+								<Label text="E-mail" labelFor="txtEmail"/>	
+								<Input id="txtEmail" editable="false"/>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+		
+						<l:HorizontalLayout class="sapUiContentPadding">	
+							<l:VerticalLayout>
+								<Label text=""/>									
+								<Button type="Emphasized" text="Voltar" press="onNavToHome" icon="sap-icon://nav-back"/>
+							</l:VerticalLayout>
+						</l:HorizontalLayout>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
